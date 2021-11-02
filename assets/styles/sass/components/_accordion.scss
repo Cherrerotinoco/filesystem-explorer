@@ -1,0 +1,27 @@
+.accordion {
+	&-item {
+		background: rgba(0,0,0,0.125);
+	}
+
+	&-button {
+		background: none;
+		color: white;
+
+		&:not(.collapsed) {
+			background: rgba(0,0,0,0.25);
+			color: white;
+
+			&::after {
+				background: none;
+				font-family: 'Material Icons';
+				content: '\e5cf';
+			}
+		}
+
+		&::after {
+			background: none;
+			font-family: 'Material Icons';
+			content: '\e5cf';
+		}
+	}
+}
