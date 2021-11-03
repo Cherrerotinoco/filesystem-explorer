@@ -20,7 +20,8 @@ class Files extends MotherCell{
     $this->extArray=$newExtArray;
   }
 
-  public function __construct($newFileType, $newExtArray){
+  public function __construct($id, $name, $dirName, $size, $newFileType, $newExtArray){
+    parent :: __construct($id, $name, $dirName, $size);
     $this->getFileType();
     $this->getExtArray();
     $this->setFileType($newFileType);
@@ -33,9 +34,9 @@ class ImageFile extends Files{
 
   protected $altString="";
 
-  public function __construct($newFIleType, $newExtArray, $string){
-    parent :: __construct($newFIleType, $newExtArray);
-    $this->setAltAttr($string);
+  public function __construct($id, $name, $dirName, $size, $newFileType, $newExtArray, $stringAlt){
+    parent :: __construct($id, $name, $dirName, $size,$newFileType, $newExtArray);
+    $this->setAltAttr($stringAlt);
   }
 
   public function getAltAttr(){
