@@ -96,19 +96,7 @@
 		</div>
 		<div class="col-12 col-md-8 col-lg-9 col-xl-10 p-3 d-flex justify-content-center align-items-center">
 			<main class="panel p-3">
-				<div class="row">
-					<?php
-					// require("./buttonAdd.php")
-					// require("./prueba.php") 
-					?>
-					<form action="prueba.php" method="POST" enctype="multipart/form-data">
-						<div class="form-group">
-							<label for="exampleFormControlFile1">input</label>
-							<input type="file" name="userfile[]" value="" multiple="" class="form-control-file">
-							<input type="submit" name="submit" value="upload" />
-						</div>
-					</form>
-				</div>
+				<div class="row"></div>
 			</main>
 		</div>
 	</div>
