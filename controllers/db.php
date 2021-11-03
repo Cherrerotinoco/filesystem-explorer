@@ -13,7 +13,7 @@ class Db {
   # Get JSON
   function getEntries() {
     $json = file_get_contents($this->jsonUrl);
-    return json_decode($json, false); 
+    return json_decode($json, true); 
   }
 
   # Update JSON
@@ -32,7 +32,6 @@ class Db {
 
     # Generate new unique ID
     $lastKey = array_key_last($data);
-    var_dump($lastKey);
     $newKey = $lastKey + 1;
 
     # Encode JSON with new object
@@ -66,19 +65,3 @@ class Db {
 }
 
 $db = new Db();
-/*
-$db->deleteEntryById(1);
-
-$db->updateEntryById(1, array("name" => 'Modified by method'));
-$db->getEntryById(2);
-
-*/
-$db->createNewEntry(array(
-  "type" => "image",
-  "extension" => "jpg", 
-  "name" => "example",
-  "size" => "12kb",
-  "dirname" => "root",
-  "creationDate" => time(),
-  "modificationDate" => time()
-));
