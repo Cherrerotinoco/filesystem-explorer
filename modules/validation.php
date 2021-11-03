@@ -72,6 +72,7 @@ function validateUploadedFile($file)
 		'application/vnd.ms-excel',
 		'image/svg+xml',
 		'image/jpg',
+		'image/jpeg',
 		'image/png',
 		'text/csv',
 		'text/plain',
