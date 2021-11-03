@@ -5,4 +5,8 @@
 class Bdd {
   protected $idCounter;
 
+  public function setNewid(){
+
+  }
+
 }
