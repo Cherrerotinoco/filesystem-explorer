@@ -98,8 +98,16 @@
 			<main class="panel p-3">
 				<div class="row">
 					<?php
-					require("./assets/components/buttonAdd.php")
+					// require("./buttonAdd.php")
+					// require("./prueba.php") 
 					?>
+					<form action="prueba.php" method="POST" enctype="multipart/form-data">
+						<div class="form-group">
+							<label for="exampleFormControlFile1">input</label>
+							<input type="file" name="userfile[]" value="" multiple="" class="form-control-file">
+							<input type="submit" name="submit" value="upload" />
+						</div>
+					</form>
 				</div>
 			</main>
 		</div>
