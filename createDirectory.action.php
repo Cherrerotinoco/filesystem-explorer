@@ -37,7 +37,7 @@ try {
 
 	mkdir($dirName);
 
-	setSessionValue("success", "Directory has been created");
+	setSessionValue("success", "Directory has been created.");
 } catch (Throwable $e) {
 	setSessionValue("errorFileSystem", $e->getMessage());
 }

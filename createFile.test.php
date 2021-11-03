@@ -20,7 +20,7 @@ if (!$currentDirectory = getSessionValue("currentDirectory")) $currentDirectory 
 	<form action="./createFile.action.php" method="POST">
 		<input class="form-control" type="text" name="filename" id="input_filename" required placeholder="File name..." />
 		<input class="form-control" type="text" name="dirpath" id="input_dirpath" value="<?= $currentDirectory ?>" />
-		<button type="submit">Create directory</button>
+		<button type="submit">Create File</button>
 	</form>
 
 	<pre>
