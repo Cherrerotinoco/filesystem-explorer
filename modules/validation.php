@@ -24,3 +24,10 @@ function validateFileName()
 
 	return null;
 }
+
+function validateUploadedFile()
+{
+	if (!isset($_POST["userfile"])) 															return "File not specified.";
+
+	return null;
+}
