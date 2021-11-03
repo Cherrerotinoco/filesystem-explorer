@@ -18,9 +18,7 @@ $phpFileUploadErrors = array(
 );
 
 if (isset($_FILES['userfile'])) {
-    // pre_r($_FILES);
     $file_array = reArrayFIles($_FILES['userfile']);
-    pre_r($file_array);
     for ($i = 0; $i < count($file_array); $i++) {
         if ($file_array[$i]['error']) { ?>
             <div class="alert alert-danger">
@@ -53,12 +51,12 @@ if (isset($_FILES['userfile'])) {
                     ?>
                 </div> <?php
                         } else {
-
+                            // pre_r($file_array);
                             $filename = $file_array[$i]['tpm-name'];
-                            $destination = "files/.$files_array[$i]['name']";
-
-                            // move_uploaded_file($filename,$destination=> "files/.$files_array[$i]['name']");
-                            move_uploaded_file($file_array[$i]['tpm-name'], "drive/>files/.$files_array[$i]['name']");
+                            var_dump($filename);
+                            $destination = "../../files/$file_array[$i]['name']";
+                            // move_uploaded_file($filename, $destination);
+                            pre_r(move_uploaded_file($filename,""));
                         ?>
                 <div class=" alert alert-success">
                     <?= $phpFileUploadErrors[$file_array[$i]['error']]; ?></div>
@@ -86,6 +84,6 @@ if (isset($_FILES['userfile'])) {
             function pre_r($array)
             {
                 echo '<pre>';
-                print_r($array);
+                var_dump($array);
                 echo '</pre>';
             }
