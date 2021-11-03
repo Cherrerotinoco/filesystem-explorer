@@ -69,13 +69,6 @@ if (isset($_FILES['userfile'])) {
 	$successMessages = [];
 
 	for ($i = 0; $i < count($files); $i++); {
-		if ($files[$i]['error']) {
-			$errorType = $files[$i]['error'];
-			$errorMessage = $files[$i]['name'] . ': ' . PHP_FILE_UPLOAD_ERRORS[$errorType];
-			array_push($errorsFile, $errorMessage);
-
-			break;
-		}
 	}
 
 	for ($i = 0; $i < count($files); $i++) {
