@@ -4,7 +4,7 @@ function validateDirectoryPath()
 {
 	if (!isset($_POST["dirpath"])) 																		return "Directory path not specified.";
 	if (!preg_match("/^\/([^\/:*?\"<>|]+\/?)*$/", $_POST["dirpath"])) return "Directory path is invalid.";
-	if (preg_match("/\/../", $_POST["dirpath"])) 											return "Directory path does not allow reverse traversal.";
+	if (preg_match("/\/\.\./", $_POST["dirpath"])) 										return "Directory path does not allow reverse traversal.";
 
 	return null;
 }

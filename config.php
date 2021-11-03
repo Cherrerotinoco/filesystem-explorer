@@ -1,3 +1,3 @@
 <?php
 
-define("BASE", "./drive");
+define("BASE", realpath("./drive"));
