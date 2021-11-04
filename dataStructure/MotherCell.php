@@ -1,6 +1,6 @@
 <?php
 
-class MotherCell implements bdd {
+class MotherCell  {
 
   protected $id; #unico y requerido
   protected $name;

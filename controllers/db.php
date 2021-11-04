@@ -5,19 +5,29 @@
 use FFI\Exception;
 
 class Db {
-  
-  public $jsonUrl = '../data.json';
 
-  protected $entryId;
-  
+  protected $jsonUrl;
+
+  public function __construct($jsonUrl='../data.json')
+  {
+    $this->jsonUrl=$jsonUrl;
+  }
+
+  public function getJsonUrl(){
+    return $this->jsonUrl;
+  }
+  public function setJsonUrl($newUrl){
+    $this->jsonUrl=$newUrl;
+  }
+
   # Get JSON
-  function getEntries() {
+  public function getEntries() {
     $json = file_get_contents($this->jsonUrl);
     return json_decode($json, true); 
   }
 
   # Update JSON
-  function setEntries($data) {
+  public function setEntries($data) {
     $jsonEntry = json_encode($data);
     return file_put_contents($this->jsonUrl, $jsonEntry);
   }
@@ -25,10 +35,10 @@ class Db {
   # Create new entry
   public function createNewEntry(array $entry) {
 
-    if ($entry === null) return new Exception('Expected object'); 
+    if ($entry === null) return new Exception('Expected object');
 
     # Get JSON
-    $data = $this->getEntries(); 
+    $data = $this->getEntries();
 
     # Generate new unique ID
     $lastKey = array_key_last($data);
@@ -48,7 +58,7 @@ class Db {
 
   # Update entry by ID
   public function updateEntryById(int $entryId, array $entryValues = []) {
-    $data = $this->getEntries(); 
+    $data = $this->getEntries();
     $data[$entryId] = array_replace($data[$entryId], $entryValues);
 
     return $this->setEntries($data);
