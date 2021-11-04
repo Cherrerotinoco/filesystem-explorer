@@ -2,7 +2,7 @@
 
 class Files extends MotherCell{
 
-  protected $fileType = "";
+  protected $fileType ;
   protected $extArray = array();
 
   public function __construct($id, $name, $dirName, $size, $newFileType, $extArray){
