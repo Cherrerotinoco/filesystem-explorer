@@ -62,9 +62,6 @@ class MotherCell  {
     $this->size=$newSize;
   }
 
-
-
-
   public function deleteFromDrive(){
     #to delete its to delete files, call de dbb controller
   }
@@ -76,7 +73,8 @@ class MotherCell  {
   }
 
 
-
+//*TODO
+// every time a change its made, the stamp its actualized
 
 }
 
