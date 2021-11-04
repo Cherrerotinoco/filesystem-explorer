@@ -4,7 +4,7 @@ require_once("./modules/session.php");
 
 if (!$currentDirectory = getSessionValue("currentDirectory")) $currentDirectory = "./";
 
-function renderExplorerContent()
+function renderFolderContent()
 {
 	// Get current directory path from session
 	// Get files and subfolders based on current path
@@ -26,7 +26,7 @@ $foo = scandir($currentDirectory);
 </head>
 
 <body>
-	<pre><?php print_r($foo) ?><br><?php print_r(php_uname('s')) ?></pre>
+	<div></div>
 </body>
 
 </html>

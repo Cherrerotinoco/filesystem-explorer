@@ -9,37 +9,37 @@ if ($errorDirectoryPath = validateDirectoryPath()) setSessionValue("errorDirecto
 if ($errorDirectoryName = validateDirectoryName()) setSessionValue("errorDirectoryName", $errorDirectoryName);
 
 if ($errorDirectoryPath || $errorDirectoryName) {
-	header("Location: ./createDirectory.test.php");
+	header("Location: ./createDirectory.form.php");
 	exit();
 }
 
 try {
-	$dirPath = 	join_path([BASE, $_POST["dirpath"]]);
-	$dirName = 	join_path([$dirPath, $_POST["dirname"]]);
+	$destpath = 	join_path([BASE, $_POST["dirpath"]]);
+	$fullpath = 	join_path([$destpath, $_POST["dirname"]]);
 
-	setSessionValue("dirpath", $dirPath);
-	setSessionValue("dirname", $dirName);
+	// setSessionValue("dirpath", $destpath);
+	// setSessionValue("dirname", $fullpath);
 
 	// Checks if directory already exists
-	if (file_exists($dirName)) {
+	if (file_exists($fullpath)) {
 		throw new Exception("Directory already exists.");
 	}
 
 	// Checks if parent does not exist
-	if (!file_exists($dirPath)) {
+	if (!file_exists($destpath)) {
 		throw new Exception("Parent directory does not exist.");
 	}
 
 	// Checks if parent is not a directory
-	if (!is_dir($dirPath)) {
+	if (!is_dir($destpath)) {
 		throw new Exception("Parent item is not a directory.");
 	}
 
-	mkdir($dirName);
+	mkdir($fullpath);
 
 	setSessionValue("success", "Directory has been created.");
 } catch (Throwable $e) {
 	setSessionValue("errorFileSystem", $e->getMessage());
 }
 
-header("Location: ./createDirectory.test.php");
+header("Location: ./createDirectory.form.php");
