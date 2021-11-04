@@ -1,10 +1,7 @@
 <?php
 
-# Init class to get the data
+# recieves data from main controlller
 
-# Proccess data, filter, modify, map, ...
-
-# Include template file
+# tells wich template file to render
 
 //*TODO
-// routes to the template in each case. Type of file or folder.
