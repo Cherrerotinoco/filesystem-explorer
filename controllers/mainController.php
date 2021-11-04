@@ -8,5 +8,3 @@
 # Proccess data, filter, modify, map, ...
 
 # passes into the view controller
-
-
