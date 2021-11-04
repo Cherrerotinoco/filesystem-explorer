@@ -83,28 +83,6 @@ a {
   font-weight: 300;
 }
 
-.accordion-item {
-  background: rgba(0, 0, 0, 0.125);
-}
-.accordion-button {
-  background: none;
-  color: white;
-}
-.accordion-button:not(.collapsed) {
-  background: rgba(0, 0, 0, 0.25);
-  color: white;
-}
-.accordion-button:not(.collapsed)::after {
-  background: none;
-  font-family: "Material Icons";
-  content: "\e5cf";
-}
-.accordion-button::after {
-  background: none;
-  font-family: "Material Icons";
-  content: "\e5cf";
-}
-
 .list-group-item {
   background: none;
   color: white;
@@ -1764,8 +1742,33 @@ template {
     min-height: calc(100vh - 5rem);
   }
 }
+.aside-nav__button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  outline: none;
+  border: none;
+  background: rgba(75, 69, 69, 0.25);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+  color: white;
+}
+.aside-nav__button--accordion:not(.collapsed) {
+  background: rgba(255, 255, 255, 0.25);
+}
+.aside-nav__button--accordion:not(.collapsed)::after {
+  background: none;
+  font-family: "Material Icons";
+  content: "\e5cf";
+}
+.aside-nav__button--accordion::after {
+  background: none;
+  font-family: "Material Icons";
+  content: "\e5cf";
+}
 
-.panel {
+.folder-content {
   height: 100%;
   width: 100%;
   background: rgba(255, 255, 255, 0.125);

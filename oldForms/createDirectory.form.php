@@ -5,7 +5,7 @@ require_once("./modules/session.php");
 if (!$currentDirectory = getSessionValue("currentDirectory")) $currentDirectory = "/";
 
 $errorDirectoryPath = popSessionValue("errorDirectoryPath");
-$errorFileName =			popSessionValue("errorFileName");
+$errorDirectoryName =	popSessionValue("errorDirectoryName");
 $errorFileSystem =		popSessionValue("errorFileSystem");
 $success =						popSessionValue("success");
 
@@ -26,8 +26,6 @@ $success =						popSessionValue("success");
 </head>
 
 <body>
-
-
 	<div class="d-flex flex-column justify-content-center align-items-center vh-100 vw-100">
 		<?php if ($success) : ?>
 			<div class="alert alert-info">
@@ -41,9 +39,9 @@ $success =						popSessionValue("success");
 			</div>
 		<?php endif; ?>
 
-		<?php if ($errorFileName) : ?>
+		<?php if ($errorDirectoryName) : ?>
 			<div class="alert alert-danger">
-				<?= $errorFileName ?>
+				<?= $errorDirectoryName ?>
 			</div>
 		<?php endif; ?>
 
@@ -53,12 +51,12 @@ $success =						popSessionValue("success");
 			</div>
 		<?php endif; ?>
 
-		<form class="p-2 m-2 d-flex flex-column align-items-center" style="width: 20rem" action="./createFile.action.php" method="POST">
-			<label class="form-label w-100" for="input_filename">File name</label>
-			<input class="form-control mb-3" type="text" name="filename" id="input_filename" required placeholder="File name..." />
-			<label class="form-label w-100" for="input_dirpath">Destination folder</label>
-			<input class="form-control mb-3" type="text" name="dirpath" id="input_dirpath" required placeholder="/" value="<?= $currentDirectory ?>" />
-			<button class="btn btn-primary" type="submit">Create File</button>
+		<form class="p-2 m-2 d-flex flex-column align-items-center" style="width: 20rem" action="./createDirectory.action.php" method="POST">
+			<label class="form-label w-100" for="input_dirname">Directory name</label>
+			<input class="form-control mb-3" type="text" name="dirname" id="input_dirname" required placeholder="Directory name..." />
+			<label class="form-label w-100" for="input_destpath">Destination folder</label>
+			<input class="form-control mb-3" type="text" name="destpath" id="input_destpath" required placeholder="/" value="<?= $currentDirectory ?>" />
+			<button class="btn btn-primary" type="submit">Create Directory</button>
 		</form>
 	</div>
 </body>

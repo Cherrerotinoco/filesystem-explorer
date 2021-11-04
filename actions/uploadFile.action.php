@@ -12,8 +12,8 @@ if ($errorDirectoryPath = validateDirectoryPath()) {
 	exit();
 }
 
-$destpath = join_path([BASE, $_POST["dirpath"]]);
-setSessionValue("dirpath", $destpath);
+$destpath = join_path([BASE, $_POST["destpath"]]);
+setSessionValue("destpath", $destpath);
 
 try {
 	// Checks if parent does not exist
@@ -33,14 +33,14 @@ try {
 
 $files = groupUploadedFilesContent($_FILES['files']);
 
-$errorUploadedFileList = [];
-$successUploadedFileList = [];
+$errorList = [];
+$successList = [];
 
 for ($i = 0; $i < count($files); $i++) {
 	echo 1;
 
 	if ($errorMessage = validateUploadedFile($files[$i])) {
-		array_push($errorUploadedFileList, $errorMessage);
+		array_push($errorList, $errorMessage);
 	} else {
 		$tmpname 	= $files[$i]['tmp_name'];
 		$filename = $files[$i]["name"];
@@ -49,12 +49,11 @@ for ($i = 0; $i < count($files); $i++) {
 		move_uploaded_file($tmpname, $fullname);
 
 		$successMessage = "File " . $files[$i]["name"] . " has been uploaded succesfully.";
-		array_push($successUploadedFileList, $successMessage);
+		array_push($successList, $successMessage);
 	}
 }
 
-setSessionValue("errorUploadedFileList", $errorUploadedFileList);
-setSessionValue("successUploadedFileList", $successUploadedFileList);
-setSessionValue("stuff", $files);
+setSessionValue("errorList", $errorList);
+setSessionValue("successList", $successList);
 
 header("Location: ./uploadFile.test.php");

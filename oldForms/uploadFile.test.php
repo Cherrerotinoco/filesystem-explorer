@@ -63,7 +63,7 @@ $errorDirectoryPath =				popSessionValue("errorDirectoryPath");
 	<form action="./uploadFile.action.php" method="POST" enctype="multipart/form-data">
 		<div class="form-group">
 			<input class="form-control" type="file" name="files[]" value="" multiple class="form-control-file">
-			<input class="form-control" type="text" name="dirpath" id="input_dirpath" value="<?= $currentDirectory ?>" />
+			<input class="form-control" type="text" name="destpath" id="input_destpath" value="<?= $currentDirectory ?>" />
 			<input type="submit" name="submit" value="upload" />
 		</div>
 	</form>
