@@ -4,8 +4,6 @@ class SessionController
 {
 	public function destroySession()
 	{
-		if (session_status() === PHP_SESSION_NONE) session_start();
-
 		if (ini_get("session.use_cookies")) {
 			destroySessionCookie();
 		}
@@ -31,41 +29,29 @@ class SessionController
 
 	public function setSessionValue(string $key, $value)
 	{
-		if (session_status() === PHP_SESSION_NONE) session_start();
-
 		$_SESSION[$key] = $value;
-
-		session_write_close();
 	}
 
 	public function getSessionValue(string $key)
 	{
-		if (session_status() === PHP_SESSION_NONE) session_start();
-
 		if (isset($_SESSION[$key])) {
 			$value = $_SESSION[$key];
 
-			session_write_close();
 			return $value;
 		}
 
-		session_write_close();
 		return null;
 	}
 
 	public function popSessionValue(string $key)
 	{
-		if (session_status() === PHP_SESSION_NONE) session_start();
-
 		if (isset($_SESSION[$key])) {
 			$value = $_SESSION[$key];
 			unset($_SESSION[$key]);
 
-			session_write_close();
 			return $value;
 		}
 
-		session_write_close();
 		return null;
 	}
 }

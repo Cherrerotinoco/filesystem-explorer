@@ -1,9 +1,11 @@
 <?php
 
-require_once("./config.php");
-require_once("./modules/validation.php");
-require_once("./modules/session.php");
-require_once("./utils/join_path.php");
+session_start();
+
+require_once("../config.php");
+require_once("../modules/validation.php");
+require_once("../controllers/sessionController.php");
+require_once("../utils/join_path.php");
 
 $errorList = [];
 $successList = [];
@@ -43,6 +45,6 @@ if (!$errorDirectoryPath && !$errorFileName) {
 $sessionController = new SessionController();
 $sessionController->setSessionValue("errorList", $errorList);
 $sessionController->setSessionValue("successList", $successList);
-unset($sessionController);
 
-header("Location: ./index.php");
+var_dump($_SESSION);
+//header("Location: ../index.php");
