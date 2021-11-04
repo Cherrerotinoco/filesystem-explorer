@@ -2,6 +2,6 @@
 
 # recieves data from main controlller
 
-# tells wich template file to render
+# tells wich layout file to render
 
 //*TODO
