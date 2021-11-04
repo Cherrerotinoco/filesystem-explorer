@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require_once("./config.php");
 require_once("./modules/validation.php");
 require_once("./modules/session.php");
@@ -12,7 +14,7 @@ if ($errorDirectoryPath = validateDirectoryPath()) {
 	exit();
 }
 
-$destpath = join_path([BASE, $_POST["destpath"]]);
+$destpath = join_path(["../drive", $_POST["destpath"]]);
 setSessionValue("destpath", $destpath);
 
 try {

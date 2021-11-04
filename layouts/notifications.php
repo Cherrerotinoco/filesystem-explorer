@@ -24,8 +24,12 @@ function renderNotifications()
 				<span><?= $success ?></span>
 				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 			</div>
-<?php endforeach;
+		<?php endforeach;
 	}
+
+	if (!$errorList && !$successList) : ?>
+		<div class="alert alert-info mb-0 p-3 text-center" role="alert">There's no event!</div>
+<?php endif;
 }
 
 ?>

@@ -31,7 +31,7 @@ require_once("./layouts/folderContent.php");
 		<div class=" col-12 col-md-4 col-lg-3 col-xl-2 p-0 overflow-hidden">
 			<?php renderAside(); ?>
 		</div>
-		<div class="col-12 col-md-8 col-lg-9 col-xl-10 p-3 d-flex justify-content-center align-items-center">
+		<div class="col-12 col-md-8 col-lg-9 col-xl-10 p-3 d-flex flex-column justify-content-center align-items-center">
 			<?php renderFolderContent(); ?>
 		</div>
 	</div>

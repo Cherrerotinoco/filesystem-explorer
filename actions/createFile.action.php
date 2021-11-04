@@ -15,7 +15,7 @@ if ($errorFileName = validateFileName()) 					 array_push($errorList, $errorFile
 
 if (!$errorDirectoryPath && !$errorFileName) {
 	try {
-		$destpath = join_path([BASE, $_POST["destpath"]]);
+		$destpath = join_path(["../drive", $_POST["destpath"]]);
 		$fullpath = join_path([$destpath, $_POST["filename"] . ".txt"]);
 
 		// Checks if file already exists
@@ -46,5 +46,4 @@ $sessionController = new SessionController();
 $sessionController->setSessionValue("errorList", $errorList);
 $sessionController->setSessionValue("successList", $successList);
 
-var_dump($_SESSION);
-//header("Location: ../index.php");
+header("Location: ../index.php");

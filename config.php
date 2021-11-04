@@ -1,3 +1,3 @@
 <?php
 
-define("BASE", realpath("../drive"));
+define("ROOT_DIRECTORY", "./drive");

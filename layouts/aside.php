@@ -37,7 +37,7 @@ function renderAside()
 				</div>
 			</button>
 			<div id="flush-collapse-2" class="accordion-collapse collapse show" aria-labelledby="flush-heading-2">
-				<div class="accordion-body p-0">
+				<div class="accordion-body p-2">
 					<div class="list-group-flush">
 						<?php renderNotifications(); ?>
 					</div>

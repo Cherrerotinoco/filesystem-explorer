@@ -15,8 +15,8 @@ if ($errorDirectoryName = validateDirectoryName()) array_push($errorList, $error
 
 if (!$errorDirectoryPath && !$errorDirectoryName) {
 	try {
-		$destpath = 	join_path([BASE, $_POST["destpath"]]);
-		$fullpath = 	join_path([$destpath, $_POST["dirname"]]);
+		$destpath = join_path(["../drive", $_POST["destpath"]]);
+		$fullpath = join_path([$destpath, $_POST["dirname"]]);
 
 		// Checks if directory already exists
 		if (file_exists($fullpath)) {
