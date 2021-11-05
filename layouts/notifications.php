@@ -17,7 +17,6 @@ function renderNotifications()
 		<?php endforeach;
 	}
 
-
 	if ($successList) {
 		foreach ($successList as $success) : ?>
 			<div class="alert alert-success alert-dismissible fade show mb-0" role="alert">

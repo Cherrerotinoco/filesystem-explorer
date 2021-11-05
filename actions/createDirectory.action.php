@@ -2,6 +2,8 @@
 
 session_start();
 
+require_once("../models/MotherCell/Folder.php");
+require_once("../controllers/dataBaseController.php");
 require_once("../config.php");
 require_once("../modules/validation.php");
 require_once("../controllers/sessionController.php");
@@ -32,6 +34,13 @@ if (!$errorDirectoryPath && !$errorDirectoryName) {
 		if (!is_dir($destpath)) {
 			throw new Exception("Parent item is not a directory.");
 		}
+
+		$db = new Db();
+		$id = $db->generateUniqueId();
+
+		$folder = new Folder($id, basename($fullpath), $destpath, 0);
+
+		$db->createNewEntry((array)$folder);
 
 		mkdir($fullpath);
 
