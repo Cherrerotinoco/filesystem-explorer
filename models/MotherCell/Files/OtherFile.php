@@ -3,7 +3,7 @@
 
 class OtherFile extends Files{
 
-  protected $fileType="otherFile";
+  protected $fileType="other";
   protected $extArray=["pdf", "doc", "xml"];
 
   public function __construct($id, $name, $dirName, $size){

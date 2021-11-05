@@ -7,7 +7,7 @@ class ImageFile extends Files{
   protected $imageType="img";
   protected $extArray=["jpg", "png"];
 
-  public function __construct($id, $name, $dirName, $size, $altString){
+  public function __construct(int $id, $name, $dirName, $size, string $altString=""){
 
     parent :: __construct($id, $name, $dirName, $size, $this->imageType, $this->extArray);
     $this->altString=$altString;

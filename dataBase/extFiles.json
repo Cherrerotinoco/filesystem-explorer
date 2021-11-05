@@ -1,0 +1,30 @@
+{
+
+  "imageFile": {
+    "type": "img",
+    "extArray": ["mpeg", "jpg", "png"]
+  },
+
+  "videoFile": {
+    "type": "video",
+    "extArray": ["mp4", "avi"]
+  },
+
+  "textFile": {
+    "type": "text",
+    "extArray": ["txt"]
+  },
+
+  "otherFile": {
+    "type": "other",
+    "extArray": ["pdf", "doc"]
+  },
+
+  "ForbiddenFile": {
+    "type": "denied",
+    "extArray": ["exe", "ini"]
+  }
+
+
+
+}
