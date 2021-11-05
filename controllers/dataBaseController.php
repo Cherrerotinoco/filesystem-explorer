@@ -50,8 +50,10 @@ class Db {
     if (gettype($entry) === "object") $entry = (array)$entry;
 
     # Clean entry array
+    $cleanEntry = [];
     foreach ($entry as $key => $entryValues) {
-      $entry[str_replace($key, '*', '')] = $entryValues;
+      $key = filter_var($key, FILTER_SANITIZE_URL);
+      $cleanEntry[$key] = $entryValues;
     }
 
     # Get JSON
@@ -61,7 +63,7 @@ class Db {
     $newKey = array_key_last($data);
 
     # Encode JSON with new object
-    $data[$newKey] = $entry;
+    $data[$newKey] = $cleanEntry;
     return $this->setEntries($data);
 
   }
