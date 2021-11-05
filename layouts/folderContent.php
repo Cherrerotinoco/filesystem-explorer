@@ -44,7 +44,7 @@ function renderFolderContent()
 			</div>
 			<?php foreach ($files as $file) : ?>
 				<div style="flex-basis: 100%;" class="d-flex justify-content-between align-items-center p-3 bg-white border-bottom">
-					<div style="flex-grow: 1; flex-shrink: 1; flex-basis: 0;"><img src="../assets/images/extensions/<?= $file["type"] ?>-svgrepo-com.svg" width="32" /></div>
+					<div style="flex-grow: 1; flex-shrink: 1; flex-basis: 0;"><img src="./assets/images/extensions/<?= $file["type"] ?>-svgrepo-com.svg" width="32" /></div>
 					<div style="flex-grow: 1; flex-shrink: 1; flex-basis: 0;"><?= $file["name"] ?></div>
 					<div style="flex-grow: 1; flex-shrink: 1; flex-basis: 0;"><?= $file["size"] ?></div>
 					<div style="flex-grow: 1; flex-shrink: 1; flex-basis: 0;"><?= $file["modtime"] ?></div>
@@ -53,7 +53,7 @@ function renderFolderContent()
 			<?php endforeach ?>
 			<?php foreach ($folders as $folder) : ?>
 				<div style="flex-basis: 100%;" class="d-flex justify-content-between align-items-center p-3 bg-white border-bottom">
-					<div style="flex-grow: 1; flex-shrink: 1; flex-basis: 0;"><img src="../assets/images/extensions/folder-svgrepo-com.svg" width="32" /></div>
+					<div style="flex-grow: 1; flex-shrink: 1; flex-basis: 0;"><img src="./assets/images/extensions/folder-svgrepo-com.svg" width="32" /></div>
 					<div style="flex-grow: 1; flex-shrink: 1; flex-basis: 0;"><?= $folder["name"] ?></div>
 					<div style="flex-grow: 1; flex-shrink: 1; flex-basis: 0;"><?= $folder["size"] ?></div>
 					<div style="flex-grow: 1; flex-shrink: 1; flex-basis: 0;"><?= $folder["modtime"] ?></div>

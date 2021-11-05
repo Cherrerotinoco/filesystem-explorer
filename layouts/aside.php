@@ -22,7 +22,7 @@ function renderAside()
 					</div>
 				</div>
 			</div>
-			<button class="aside-nav__button" type="button">
+			<button data-bs-toggle="modal" data-bs-target="#modalUploadFiles" class="aside-nav__button" type="button">
 				<div class="d-flex align-items-center gap-2">
 					<span class="material-icons">cloud_upload</span>
 					<span class="fw-light">Upload files</span>

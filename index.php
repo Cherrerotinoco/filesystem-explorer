@@ -4,9 +4,11 @@ session_start();
 
 require_once("./layouts/header.php");
 require_once("./layouts/aside.php");
+require_once("./layouts/folderContent.php");
 require_once("./layouts/modalAddFile.php");
 require_once("./layouts/modalAddFolder.php");
-require_once("./layouts/folderContent.php");
+require_once("./layouts/modalUploadFiles.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -23,9 +25,10 @@ require_once("./layouts/folderContent.php");
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </head>
 
-<body class="body min-vh-100">
+<body class="body min-vh-100" style="background-image: url('./assets/images/Polygon\ Luminary.svg');">
 	<?php renderModalAddFile(); ?>
 	<?php renderModalAddFolder(); ?>
+	<?php renderModalUploadFiles(); ?>
 	<?php renderHeader(); ?>
 	<div class="row m-0">
 		<div class=" col-12 col-md-4 col-lg-3 col-xl-2 p-0 overflow-hidden">

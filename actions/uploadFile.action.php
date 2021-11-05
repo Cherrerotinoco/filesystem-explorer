@@ -2,60 +2,58 @@
 
 session_start();
 
-require_once("./config.php");
-require_once("./modules/validation.php");
-require_once("./modules/session.php");
-require_once("./utils/join_path.php");
-require_once("./utils/groupUploadedFilesContent.php");
-
-if ($errorDirectoryPath = validateDirectoryPath()) {
-	setSessionValue("errorDirectoryPath", $errorDirectoryPath);
-	header("Location: ./uploadFile.test.php");
-	exit();
-}
-
-$destpath = join_path(["../drive", $_POST["destpath"]]);
-setSessionValue("destpath", $destpath);
-
-try {
-	// Checks if parent does not exist
-	if (!file_exists($destpath)) {
-		throw new Exception("Parent directory does not exist.");
-	}
-
-	// Checks if parent is not a directory
-	if (!is_dir($destpath)) {
-		throw new Exception("Parent item is not a directory.");
-	}
-} catch (Throwable $e) {
-	setSessionValue("errorFileSystem", $e->getMessage());
-	header("Location: ./uploadFile.test.php");
-	exit();
-}
-
-$files = groupUploadedFilesContent($_FILES['files']);
+require_once("../config.php");
+require_once("../modules/validation.php");
+require_once("../modules/session.php");
+require_once("../utils/join_path.php");
+require_once("../utils/groupUploadedFilesContent.php");
 
 $errorList = [];
 $successList = [];
 
-for ($i = 0; $i < count($files); $i++) {
-	echo 1;
+if ($errorDirectoryPath = validateDirectoryPath()) array_push($errorList,  $errorDirectoryPath);
 
-	if ($errorMessage = validateUploadedFile($files[$i])) {
-		array_push($errorList, $errorMessage);
-	} else {
-		$tmpname 	= $files[$i]['tmp_name'];
-		$filename = $files[$i]["name"];
-		$fullname = join_path([$destpath, $filename]);
+if (!$errorDirectoryPath) {
+	try {
+		$destpath = join_path(["../drive", $_POST["destpath"]]);
 
-		move_uploaded_file($tmpname, $fullname);
+		// Checks if parent does not exist
+		if (!file_exists($destpath)) {
+			throw new Exception("Parent directory does not exist.");
+		}
 
-		$successMessage = "File " . $files[$i]["name"] . " has been uploaded succesfully.";
-		array_push($successList, $successMessage);
+		// Checks if parent is not a directory
+		if (!is_dir($destpath)) {
+			throw new Exception("Parent item is not a directory.");
+		}
+
+		$files = groupUploadedFilesContent($_FILES['files']);
+
+		$errorList = [];
+		$successList = [];
+
+		for ($i = 0; $i < count($files); $i++) {
+			echo 1;
+
+			if ($errorMessage = validateUploadedFile($files[$i])) {
+				array_push($errorList, $errorMessage);
+			} else {
+				$tmpname 	= $files[$i]['tmp_name'];
+				$filename = $files[$i]["name"];
+				$fullname = join_path([$destpath, $filename]);
+
+				move_uploaded_file($tmpname, $fullname);
+
+				$successMessage = "File " . $files[$i]["name"] . " has been uploaded succesfully.";
+				array_push($successList, $successMessage);
+			}
+		}
+	} catch (Throwable $e) {
+		array_push($errorList, $e->getMessage());
 	}
 }
 
 setSessionValue("errorList", $errorList);
 setSessionValue("successList", $successList);
 
-header("Location: ./uploadFile.test.php");
+header("Location: ../index.php");
