@@ -42,9 +42,16 @@ class Db {
   }
 
   # Create new entry
-  public function createNewEntry(array $entry) {
+  public function createNewEntry(array|object $entry) {
 
     if ($entry === null) return new Exception('Expected object');
+
+    if (gettype($entry) === "object") $entry = (array)$entry;
+
+    # Clean entry array
+    foreach ($entry as $key => $entryValues) {
+      $entry[str_replace($key, '*', '')] = $entryValues;
+    }
 
     # Get JSON
     $data = $this->getEntries();
