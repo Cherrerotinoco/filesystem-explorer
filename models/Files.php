@@ -1,5 +1,5 @@
 <?php
-require_once ("MotherCell.php");
+
 
 class Files extends MotherCell
 {

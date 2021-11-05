@@ -1,6 +1,4 @@
 <?php
-require_once ("../Files.php");
-
 class ImageFile extends Files
 {
 
