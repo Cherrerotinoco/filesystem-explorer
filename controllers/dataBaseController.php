@@ -32,6 +32,12 @@ class Db {
     return file_put_contents($this->jsonUrl, $jsonEntry);
   }
 
+  # Generate new unique ID
+  public function generateUniqueId($data) {
+    $lastKey = array_key_last($data);
+    return $lastKey + 1;
+  }
+
   # Create new entry
   public function createNewEntry(array $entry) {
 
@@ -41,8 +47,7 @@ class Db {
     $data = $this->getEntries();
 
     # Generate new unique ID
-    $lastKey = array_key_last($data);
-    $newKey = $lastKey + 1;
+    $newKey = $this->generateUniqueId($data);
 
     # Encode JSON with new object
     $data[$newKey] = $entry;
