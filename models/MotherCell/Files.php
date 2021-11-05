@@ -1,29 +1,35 @@
 <?php
 
-class Files extends MotherCell{
+require_once("../models/MotherCell.php");
 
-  protected $fileType ;
+class Files extends MotherCell
+{
+
+  protected $fileType;
   protected $extArray = array();
 
-  public function __construct($id, $name, $dirName, $size, $newFileType, $extArray){
-    parent :: __construct($id, $name, $dirName, $size);
-    $this->fileType=$newFileType;
-    $this->extArray=$extArray;
+  public function __construct($id, $name, $dirName, $size, $newFileType, $extArray)
+  {
+    parent::__construct($id, $name, $dirName, $size);
+    $this->fileType = $newFileType;
+    $this->extArray = $extArray;
   }
 
-  public function getFileType(){
+  public function getFileType()
+  {
     return $this->fileType;
   }
-  public function setFileType($newFileType){
-    $this->fileType=$newFileType;
+  public function setFileType($newFileType)
+  {
+    $this->fileType = $newFileType;
   }
 
-  public function getExtArray(){
+  public function getExtArray()
+  {
     return $this->extArray;
   }
-  public function setExtArray($newExtArray){
-    $this->extArray=$newExtArray;
+  public function setExtArray($newExtArray)
+  {
+    $this->extArray = $newExtArray;
   }
-
 }
-

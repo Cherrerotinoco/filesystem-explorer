@@ -1,7 +1,57 @@
 <?php
 
-//*TODO
+class SessionController
+{
+	public function destroySession()
+	{
+		if (ini_get("session.use_cookies")) {
+			destroySessionCookie();
+		}
 
-// manage $_SESSION to keep track of clients actions
+		session_unset();
+		session_destroy();
+	}
 
-// useful for viewing actual folder for example
+	public function destroySessionCookie()
+	{
+		$params = session_get_cookie_params();
+
+		setcookie(
+			session_name(),
+			'',
+			time() - 60 * 60 * 24 * 30,
+			$params["path"],
+			$params["domain"],
+			$params["secure"],
+			$params["httponly"],
+		);
+	}
+
+	public function setSessionValue(string $key, $value)
+	{
+		$_SESSION[$key] = $value;
+	}
+
+	public function getSessionValue(string $key)
+	{
+		if (isset($_SESSION[$key])) {
+			$value = $_SESSION[$key];
+
+			return $value;
+		}
+
+		return null;
+	}
+
+	public function popSessionValue(string $key)
+	{
+		if (isset($_SESSION[$key])) {
+			$value = $_SESSION[$key];
+			unset($_SESSION[$key]);
+
+			return $value;
+		}
+
+		return null;
+	}
+}

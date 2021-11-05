@@ -1,36 +1,46 @@
 <?php
-class Folder extends MotherCell{
+
+require_once("../models/MotherCell.php");
+
+class Folder extends MotherCell
+{
 
   protected $fileType = "folder";
   protected $childItemsIds = array();
 
-  public function __construct($id, $name, $dirName, $size){
-    parent :: __construct($id, $name, $dirName, $size);
+  public function __construct($id, $name, $dirName, $size = 0)
+  {
+    parent::__construct($id, $name, $dirName, $size);
   }
 
-  public function getFileType(){
+  public function getFileType()
+  {
     return $this->fileType;
   }
 
-  public function getChildItemsIds(){
+  public function getChildItemsIds()
+  {
     return $this->childItemsIds;
   }
-  public function setChildItemsIds($newArray){
-    $this->childItemsIds=$newArray;
+  public function setChildItemsIds($newArray)
+  {
+    $this->childItemsIds = $newArray;
   }
 
   #metodo que me guarde todos us childs con sus id
 
-  public function setNewChildInFolder($id){
-    $updatedChildsArray=$this->getChildItemsIds();
+  public function setNewChildInFolder($id)
+  {
+    $updatedChildsArray = $this->getChildItemsIds();
     array_push($updatedChildsArray, $id);
     #CALL BDDD CONTROLLER TO update it in JSON
   }
 
-  public function removeChildFromFolder($id){
-    $updatedChildsArray=$this->getChildItemsIds();
+  public function removeChildFromFolder($id)
+  {
+    $updatedChildsArray = $this->getChildItemsIds();
     // get the index of the id
-    $keyIdToRemove=array_search($updatedChildsArray, $id);
+    $keyIdToRemove = array_search($updatedChildsArray, $id);
 
     unset($updatedChildsArray[$keyIdToRemove]);
 
@@ -40,5 +50,4 @@ class Folder extends MotherCell{
     #update child
 
   }
-
 }
