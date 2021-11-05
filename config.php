@@ -1,3 +1,3 @@
 <?php
 
-define("ROOT_DIRECTORY", "./drive");
+define("ROOT_DIRECTORY", "../drive");

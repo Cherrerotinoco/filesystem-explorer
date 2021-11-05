@@ -71,4 +71,4 @@ if (!$errorDirectoryPath) {
 setSessionValue("errorList", $errorList);
 setSessionValue("successList", $successList);
 var_dump($_SESSION);
-//header("Location: ../index.php");
+header("Location: ../index.php");
