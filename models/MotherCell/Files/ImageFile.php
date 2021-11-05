@@ -1,7 +1,8 @@
 <?php
-require_once("../Files.php");
+include ("../Files.php");
 
-class ImageFile extends Files{
+class ImageFile extends Files
+{
 
   protected $altString="";
   protected $imageType="img";

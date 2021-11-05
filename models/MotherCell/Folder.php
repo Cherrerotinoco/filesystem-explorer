@@ -1,6 +1,6 @@
 <?php
 
-require_once("../models/MotherCell.php");
+include ("../models/MotherCell.php");
 
 class Folder extends MotherCell
 {

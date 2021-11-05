@@ -28,7 +28,7 @@ require_once("./layouts/modalUploadFiles.php");
 <body class="body min-vh-100" style="background-image: url('./assets/images/Polygon\ Luminary.svg');">
 	<?php renderModalAddFile(); ?>
 	<?php renderModalAddFolder(); ?>
-	<?php renderModalUploadFiles(); ?>
+	<?php // renderModalUploadFiles(); ?>
 	<?php renderHeader(); ?>
 	<div class="row m-0">
 		<div class=" col-12 col-md-4 col-lg-3 col-xl-2 p-0 overflow-hidden">

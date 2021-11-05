@@ -1,6 +1,5 @@
 <?php
-
-require_once("../models/MotherCell.php");
+include ("../models/MotherCell.php");
 
 class Files extends MotherCell
 {
@@ -8,7 +7,7 @@ class Files extends MotherCell
   protected $fileType;
   protected $extArray = array();
 
-  public function __construct($id, $name, $dirName, $size, $newFileType, $extArray)
+  public function __construct($id, $name, $dirName, $size, string $newFileType="", array $extArray=[])
   {
     parent::__construct($id, $name, $dirName, $size);
     $this->fileType = $newFileType;

@@ -7,7 +7,10 @@ require_once("../modules/validation.php");
 require_once("../modules/session.php");
 require_once("../utils/join_path.php");
 require_once("../utils/groupUploadedFilesContent.php");
-require_once("../models/MotherCell/Files/ImageFile.php");
+
+//include ("../models/MotherCell/Files/ImageFile.php");
+require_once("../models/MotherCell/Files.php");
+require_once("../controllers/dataBaseController.php");
 
 
 $errorList = [];
@@ -51,7 +54,8 @@ if (!$errorDirectoryPath) {
                 // in this case this is a img
                 $db = new Db();
                 $id = $db->generateUniqueId();
-                $file = new ImageFile($id, $filename, $destpath, $size, $altString);
+                $file = new Files($id, $filename, $destpath, $size);
+                //$file = new ImageFile($id, $filename, $destpath, $size, $altString);
                 move_uploaded_file($tmpname, $fullname);
                 $db->createNewEntry((array)$file);
                 $successMessage = "File " . $files[$i]["name"] . " has been uploaded succesfully.";
