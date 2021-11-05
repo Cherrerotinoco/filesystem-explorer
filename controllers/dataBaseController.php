@@ -1,6 +1,7 @@
 <?php
 
 #controlador bdd
+require ("./config/constants.php");
 
 use FFI\Exception;
 
@@ -8,7 +9,7 @@ class Db {
 
   protected $jsonUrl;
 
-  public function __construct($jsonUrl='../data.json')
+  public function __construct($jsonUrl=JSON_FILES)
   {
     $this->jsonUrl=$jsonUrl;
   }
@@ -23,7 +24,7 @@ class Db {
   # Get JSON
   public function getEntries() {
     $json = file_get_contents($this->jsonUrl);
-    return json_decode($json, true); 
+    return json_decode($json, true);
   }
 
   # Update JSON
