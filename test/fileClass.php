@@ -16,7 +16,7 @@ class Folder {
     }
     
     # Create file
-    mkdir("D:\\Usuario\\Escritorio\\dev-assembler\\filesystem-explorer\\test\"$pathName");
+    //mkdir("D:\\Usuario\\Escritorio\\dev-assembler\\filesystem-explorer\\test\"$pathName");
 
   }
 
