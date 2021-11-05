@@ -12,7 +12,6 @@ require_once("../utils/groupUploadedFilesContent.php");
 require_once("../models/MotherCell/Files.php");
 require_once("../controllers/dataBaseController.php");
 
-
 $errorList = [];
 $successList = [];
 
@@ -47,7 +46,7 @@ if (!$errorDirectoryPath) {
                 $tmpname = $files[$i]['tmp_name'];
                 $filename = filter_var($files[$i]["name"], FILTER_SANITIZE_URL);
                 $fullname = join_path([$destpath, $filename]);
-                $extension = end(explode(".", $filename));
+                $extension = explode(".", $filename)[1];
                 $filename = explode(".", $filename)[0];
                 $size = $files[$i]['size'];
                 $altString = $tmpname;
