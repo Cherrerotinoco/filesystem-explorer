@@ -1,6 +1,6 @@
 <?php
 
-class Files extends MotherCell{
+class Files extends MotherCell implements MotherCellInterface{
 
   protected $fileType ;
   protected $extArray = array();
@@ -24,6 +24,13 @@ class Files extends MotherCell{
   public function setExtArray($newExtArray){
     $this->extArray=$newExtArray;
   }
-
+  public function renderFile()
+  {
+    return;
+  }
+  public function editFile()
+  {
+    return;
+  }
 }
 

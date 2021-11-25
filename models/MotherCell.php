@@ -1,5 +1,10 @@
 <?php
 
+interface MotherCellInterface {
+  public function renderFile();
+  public function editFile();
+}
+
 class MotherCell  {
 
   protected $id; #unico y requerido
